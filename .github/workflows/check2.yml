@@ -1,20 +1,22 @@
-name: Default environment variables
+name: custom environment variables
 
 on:
   push:
   
+env:
+  SUBSCRIBE: subscribe
+
 jobs:
-  default-env-variables:
+  subscribe-my-channel:
     runs-on: ubuntu-latest
+    env:
+      LIKE: please like share
     steps:
-      - name: Testing secrets
-        run: |
-          if [ "$Devops" == "dillibabu91GIT" ]; then
-            echo "got our secret"
-          fi
+      - name: please like share and subscribe our devops channel
+        run: echo "$LIKE and $SUBSCRIBE our $CHANNEL_NAME channel."
         env:
-          Devops: "${{ secrets.SECRETS_TOKEN }}"
+          CHANNEL_NAME: devops
+
+
           
-      - name: Default environment variables
-        run: |
 
