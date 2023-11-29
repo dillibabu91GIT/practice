@@ -9,7 +9,9 @@ jobs:
     steps:
       - name: Testing secrets
         run: |
-          echo "$Devops"
+          if [ "$Devops" == "dillibabu91GIT" ]; then
+            echo "got our secret"
+          fi
         env:
           Devops: "${{ secrets.SECRETS_TOKEN }}"
           
@@ -24,3 +26,4 @@ jobs:
           echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
           echo "GITHUB_SHA: ${GITHUB_SHA}"
           echo "RUNNER_OS: ${RUNNER_OS}"
+
