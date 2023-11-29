@@ -1,1 +1,20 @@
+name: Default environment variables
+
+on:
+  push:
+  
+jobs:
+  default-env-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Testing secrets
+        run: |
+          if [ "$Devops" == "dillibabu91GIT" ]; then
+            echo "got our secret"
+          fi
+        env:
+          Devops: "${{ secrets.SECRETS_TOKEN }}"
+          
+      - name: Default environment variables
+        run: |
 
